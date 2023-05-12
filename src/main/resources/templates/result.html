@@ -1,0 +1,32 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Thymeleaf Quiz Submission</title>
+  <th:block th:include="head :: head"/>
+</head>
+
+<body id="samples">
+<div th:replace="menu :: menu"></div>
+<div class="container" id="content">
+  <div class="text-center">
+    <i class="bi-balloon-heart-fill" style="font-size: 6rem; color: green;" th:if=${quiz.answer=='A'}></i>
+    <i class="bi-x-circle-fill" style="font-size: 6rem; color: red;" th:unless=${quiz.answer=='A'}></i>
+    <div class="panel mt-4 text-center">
+      <div class="panel-body">
+        <h4>Your selected answer is <strong>
+          <span th:text="${quiz.answer}"></span>
+        </strong></h4>
+        <p th:if=${quiz.answer=='A'}>Good Job!</p>
+      </div>
+    </div>
+    <div class="panel mt-4 text-center" th:unless=${quiz.answer=='A'}>
+      <div class="panel-body">
+        <p>It is not the right answer</p>
+        <p><a th:href="@{/quiz}">Try again!</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<th:block th:include="footer :: footer"/>
+</html>

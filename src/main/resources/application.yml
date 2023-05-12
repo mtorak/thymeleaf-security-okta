@@ -1,0 +1,21 @@
+
+spring:
+  thymeleaf:
+    prefix: file:src/main/resources/templates/
+  security:
+    oauth2:
+      client:
+        provider:
+          okta:
+            user-name-attribute: email
+
+okta:
+  oauth2:
+    issuer: https://dev-08814535.okta.com/oauth2/default
+    client-id: 0oa6q1d9wou8aowps5d7
+    client-secret: iWWP3nET4tXi6UEppUJuwVTLF9zfBEMJOF843e6t
+    scopes:
+      - email
+      - openid
+      - profile
+      - quiz
